@@ -1,65 +1,18 @@
-# ================================
-# Java Compilation
-# ================================
-*.class
+# Compiled Java output
 out/
-build/
-target/
+*.class
 
-# ================================
-# Runtime Data & Logs
-# ================================
+# Runtime data and logs
 data/
 logs/
 test-data/
 
-# ================================
-# IntelliJ IDEA
-# ================================
+# IDE and editor files
 .idea/
 *.iml
-*.iws
-*.ipr
-
-# ================================
-# VS Code
-# ================================
 .vscode/
-
-# ================================
-# Eclipse
-# ================================
-.classpath
-.project
-.settings/
-
-# ================================
-# NetBeans
-# ================================
-/nbproject/private/
-/nbbuild/
-/dist/
-/.nb-gradle/
-
-# ================================
-# OS Generated Files
-# ================================
 .DS_Store
-Thumbs.db
-desktop.ini
 
-# ================================
-# Temporary & Log Files
-# ================================
+# Temporary files
 *.tmp
-*.temp
 *.log
-*.swp
-*.swo
-*~
-
-# ================================
-# Java/Build Tool Files
-# ================================
-.gradle/
-.mvn/
