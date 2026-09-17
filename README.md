@@ -1,94 +1,170 @@
 # Library Management System (CLI Edition)
 
-A command-line **Library Management System** written in Core Java as part of a Programmation in Java project. This program showcases object-oriented programming concepts in the layered architecture, the usage of custom exceptions, the use of file-based data persistence, and also logging and assertion-based testing.
+A command-line **Library Management System** developed in Core Java for a Programming in Java course project. The system demonstrates object-oriented programming, layered architecture, custom exception handling, file-based data persistence, logging, and assertion-based testing.
 
-The system runs entirely in the command line without the need for a GUI, database server, libraries, or internet access.
+The application runs completely through the terminal and does not require a GUI, database server, external libraries, or an internet connection.
+
+---
 
 ## 1. Project Overview
 
-I have been developing the simple menu-driven command line interface-based library management system for a small library.
+The Library Management System is designed to manage the basic operations of a small library through a simple menu-driven command-line interface.
 
-The system consists of four modules, namely,
+The system consists of four major functional modules:
 
-1. Member Management
+1. **Member Management** — Register, list, update, deactivate, and delete members.
+2. **Book / Inventory Management** — Add, list, search, update, and delete books while tracking total and available copies.
+3. **Transaction Management** — Issue and return books, track overdue transactions, and calculate fines.
+4. **Reports and Analytics** — Display library summary statistics and top-borrowed books.
 
-2. Books/Inventory Management
+All important data is stored in CSV files so that information is preserved between program executions.
 
-3. Transaction Management
-
-4. Reports
-
-The Member Management module facilitates the addition of new members, viewing all the existing members, updating the member’s information, deactivating and deleting members.
-
-The second module allows adding books, viewing all the books, searching for a particular book, modifying the book’s information, deleting the book, and keeping track of the copies of the book in inventory. This module also consists of features to record the number of copies issued and available for each book.
-
-The Transaction Management module is used to record the issuance of books, receive the returned books, keep a record of overdue books and calculate the fines.
-
-The Reports module helps generate the general statics of the library’s performance, borrowing patterns of the books and members, and the most and least borrowed books.
-
-The library management system stores the data in CSV files to retain the information even after the termination of the application. Additionally, every event that occurs during the application’s functioning is recorded in a log file with timestamps.
+Application activities are recorded in a log file with timestamps.
 
 ---
 
-## 2. Features
+## 2. Project Objectives
 
-A menu-driven command line interface-based navigation.
+The main objectives of this project are:
 
-Validation of user input.
+* To develop a practical Library Management System using Core Java.
+* To apply object-oriented programming concepts in a real-world application.
+* To implement CRUD operations for members and books.
+* To manage book issuing and returning through transaction processing.
+* To implement automatic fine calculation for overdue books.
+* To demonstrate file handling and persistent data storage using CSV files.
+* To apply exception handling and input validation.
+* To organize the application using a modular layered architecture.
+* To implement testing without relying on external testing frameworks.
+* To provide useful library reports and borrowing statistics.
 
-Core Java based object-oriented programming approach.
-
-A layered approach.
-
-Member Management: adding, viewing, updating, deleting, and deactivating members.
-
-Books/Inventory Management: adding, viewing, searching, modifying, deleting, and inventory tracking of books.
-
-Transaction Management: issuing books, receiving returned books, recording overdue books, and calculating fines.
-
-Generation of reports about the general statics, borrowing patterns, and most and least borrowed books.
-
-Customized exception handling;
-
-Data storage in CSV files;
-
-Loading and saving data upon initiation and termination of the application; logger module with timestamps;
-
-Testing without using a JUnit framework;
-
-No dependency on external libraries or databases;
-
-Implementation of an offline application;
-
-Fine calculation based on the number of overdue days;
-
-The automatic calculation of the fine upon the return of the overdue book;
-
-Record of all the transactions;
-
-No manual calculation of fines;
-
-I have implemented the logic that permanently stores all the information in CSV files.
-
-
-## 3. Technologies Used
-
-Component Technology
-----|----
-Programming Language: Java
-Java Version: JDK 17+
-Development: VS Code / Any Java IDE
-Compilation: javac
-Execution: java
-Data Storage: CSV files
-Testing: Hand-written assertion-based tests
-Logging: Custom Java logging utility
-Version Control: Git
-
-None of Maven, Gradle, JUnit, or a database server are used.
 ---
 
-4. Project Structure
+## 3. Functional Requirements
+
+The system provides the following functional requirements:
+
+### 3.1 Member Management
+
+* Register new members.
+* Display registered members.
+* Update member information.
+* Deactivate members.
+* Delete members.
+* Generate unique member IDs.
+
+### 3.2 Book / Inventory Management
+
+* Add new books.
+* Display available books.
+* Search for books.
+* Update book information.
+* Delete books.
+* Track total copies.
+* Track available copies.
+* Generate unique book IDs.
+
+### 3.3 Transaction Management
+
+* Issue books to registered members.
+* Return issued books.
+* Generate transaction IDs.
+* Track transaction status.
+* Track overdue transactions.
+* Calculate fines automatically for late returns.
+* Update available book copies after issue and return.
+
+### 3.4 Reports and Analytics
+
+* Display library summary statistics.
+* Display borrowing information.
+* Identify the most-borrowed books.
+* Provide basic information about library activity.
+
+---
+
+## 4. Non-Functional Requirements
+
+### 4.1 Usability
+
+The system provides a simple menu-driven command-line interface with clear options and input prompts.
+
+### 4.2 Reliability
+
+Library data is stored in CSV files so that information is preserved when the application is closed and restarted.
+
+### 4.3 Maintainability
+
+The application follows a layered architecture separating models, repositories, services, utilities, and the CLI.
+
+### 4.4 Error Handling
+
+Input validation and custom checked exceptions are used to handle invalid inputs, missing records, duplicate entries, and invalid library operations.
+
+### 4.5 Performance
+
+The application is lightweight and uses local CSV storage, making it suitable for managing data for a small library without requiring a database server.
+
+### 4.6 Resource Efficiency
+
+The system uses only standard JDK functionality and does not require external libraries, database servers, or internet connectivity.
+
+### 4.7 Logging
+
+Important application activities are recorded with timestamps in `logs/app.log`, providing basic monitoring and traceability.
+
+---
+
+## 5. Features
+
+* Menu-driven command-line interface
+* Input validation
+* Object-oriented design using Core Java
+* Layered architecture
+* Member management
+* Book and inventory management
+* CRUD operations
+* Book issuing and returning
+* Automatic overdue fine calculation
+* Overdue transaction tracking
+* Library reports and statistics
+* Custom checked exceptions
+* CSV-based file persistence
+* Automatic loading and saving of data
+* Timestamp-based application logging
+* 9 assertion-based tests
+* No external libraries or database required
+* Completely offline operation
+
+### Fine Calculation
+
+The default loan period is **14 days**.
+
+A fine of **₹5 per overdue day** is applied when a book is returned after the allowed loan period.
+
+These values can be changed in `TransactionService.java`.
+
+---
+
+## 6. Technologies Used
+
+| Component            | Technology                         |
+| -------------------- | ---------------------------------- |
+| Programming Language | Java                               |
+| Java Version         | JDK 17 or newer                    |
+| Development          | VS Code / Any Java IDE             |
+| Compilation          | `javac`                            |
+| Execution            | `java`                             |
+| Data Storage         | CSV files                          |
+| Testing              | Hand-written assertion-based tests |
+| Logging              | Custom Java logging utility        |
+| Version Control      | Git                                |
+
+The project does not require Maven, Gradle, JUnit, a database server, or any other external dependency.
+
+---
+
+## 7. Project Structure
 
 ```text
 LibraryManagementSystem/
@@ -99,195 +175,179 @@ LibraryManagementSystem/
 ├── .gitignore
 │
 ├── data/
-│  ├── books.csv
-│  ├── members.csv
-│  └── transactions.csv
+│   ├── books.csv
+│   ├── members.csv
+│   └── transactions.csv
 │
 ├── logs/
-│  └── app.log
+│   └── app.log
 │
 └── src/
-├── main/
-│  └── java/
-│    └── com/
-│      └── library/
-│        ├── Main.java
-│        │
-│        ├── model/
-│        │  ├── Book.java
-│        │  ├── Member.java
-│        │  ├── Transaction.java
-│        │  └── TransactionStatus.java
-│        │
-│        ├── exception/
-│        │  ├── LibraryException.java
-│        │  ├── NotFoundException.java
-│        │  ├── DuplicateEntryException.java
-│        │  └── BusinessRuleException.java
-│        │
-│        ├── util/
-│        │  ├── AppLogger.java
-│        │  ├── IdGenerator.java
-│        │  └── InputValidator.java
-│        │
-│        ├── repository/
-│        │  ├── FileRepository.java
-│        │  ├── BookRepository.java
-│        │  ├── MemberRepository.java
-│        │  └── TransactionRepository.java
-│        │
-│        └── service/
-│          ├── BookService.java
-│          ├── MemberService.java
-│          ├── TransactionService.java
-│          └── ReportService.java
-│
-└── test/
-└── java/
-└── com/
-└── library/
-└── SimpleTestRunner.java
+    ├── main/
+    │   └── java/
+    │       └── com/
+    │           └── library/
+    │               ├── Main.java
+    │               │
+    │               ├── model/
+    │               │   ├── Book.java
+    │               │   ├── Member.java
+    │               │   ├── Transaction.java
+    │               │   └── TransactionStatus.java
+    │               │
+    │               ├── exception/
+    │               │   ├── LibraryException.java
+    │               │   ├── NotFoundException.java
+    │               │   ├── DuplicateEntryException.java
+    │               │   └── BusinessRuleException.java
+    │               │
+    │               ├── util/
+    │               │   ├── AppLogger.java
+    │               │   ├── IdGenerator.java
+    │               │   └── InputValidator.java
+    │               │
+    │               ├── repository/
+    │               │   ├── FileRepository.java
+    │               │   ├── BookRepository.java
+    │               │   ├── MemberRepository.java
+    │               │   └── TransactionRepository.java
+    │               │
+    │               └── service/
+    │                   ├── BookService.java
+    │                   ├── MemberService.java
+    │                   ├── TransactionService.java
+    │                   └── ReportService.java
+    │
+    └── test/
+        └── java/
+            └── com/
+                └── library/
+                    └── SimpleTestRunner.java
 ```
 
+---
 
-## 5. Architecture
+## 8. System Architecture
 
 The project follows a layered architecture:
 
 ```text
-                ┌─────────────────────┐
-                │     Main / CLI      │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │      Services       │
-                │                     │
-                │ BookService         │
-                │ MemberService       │
-                │ TransactionService  │
-                │ ReportService       │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │    Repositories     │
-                │                     │
-                │ BookRepository      │
-                │ MemberRepository    │
-                │ TransactionRepository│
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │    CSV Storage      │
-                │                     │
-                │ books.csv           │
-                │ members.csv         │
-                │ transactions.csv    │
-                └─────────────────────┘
+                 ┌─────────────────────┐
+                 │     Main / CLI      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │      Services       │
+                 │                     │
+                 │ BookService         │
+                 │ MemberService       │
+                 │ TransactionService  │
+                 │ ReportService       │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    Repositories     │
+                 │                     │
+                 │ BookRepository      │
+                 │ MemberRepository    │
+                 │ TransactionRepository│
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    CSV Storage      │
+                 │                     │
+                 │ books.csv           │
+                 │ members.csv         │
+                 │ transactions.csv    │
+                 └─────────────────────┘
 ```
 
 ### Main Layers
 
-Model Layer
+**Model Layer**
+Contains the application's main entities such as `Book`, `Member`, and `Transaction`.
 
-Which holds the basic entities used in the application like the `Book`, `Member` and `Transaction`.
+**Repository Layer**
+Handles reading and writing application data to CSV files.
 
-Repository Layer
+**Service Layer**
+Contains the main business rules and operations of the library.
 
-That is used for reading and writing the application data into CSV files.
-
-Service Layer
-
-Where the main business logic and processes behind the system are held.
-
-CLI Layer
-
-Used for the menu interface, the CLI or the `Main.java` file.
+**CLI Layer**
+Provides the menu-driven terminal interface through `Main.java`.
 
 ---
 
-## 6. Prerequisites
+## 9. Prerequisites
 
-Before we install the application, here are some tools we need to make sure that are installed on the computer:
+Before running the project, make sure you have:
 
-JDK 17 or higher versions
+* **JDK 17 or newer**
+* A terminal such as PowerShell, Command Prompt, Bash, or Terminal
+* Git, if cloning the repository
 
-A terminal emulator like the PowerShell, CMD, Bash or Terminal
-
-A GitClone tool in case we want to clone the project from the repository.
-
-We can check the Java Version by using the command below;
+Verify Java installation:
 
 ```bash
-
 java -version
-
 javac -version
-
 ```
 
-The two commands above should return with the versions that are higher than JDK 17.
+Both commands should show JDK 17 or a newer version.
 
-There is no need for databases, maven, gradle or the internet to run the project.
+No database, Maven, Gradle, or internet connection is required.
 
 ---
 
-## 7. Setup and Installation
+## 10. Setup and Installation
 
 ### Step 1 — Get the Project
 
-We will need to git clone the project onto our computer by running the command below;
+Clone the repository:
 
 ```bash
-
-git clone
-
+git clone <your-repository-url>
 cd LibraryManagementSystem
-
 ```
 
-In case of a zip folder, we will have to extract the file and open the terminal in the now created `LibraryManagementSystem` folder.
+If the project is provided as a ZIP file, extract it and open a terminal inside the extracted `LibraryManagementSystem` folder.
 
-### Step 2 — Compiling The Project
+---
 
-Run the commands below;
+### Step 2 — Compile the Project
 
 #### Linux / macOS
 
 ```bash
-
 mkdir -p out
-
-javac -d out $(find src/main/java -name ".java")
-
+javac -d out $(find src/main/java -name "*.java")
 ```
 
 #### Windows PowerShell
 
 ```powershell
-
 mkdir out
-
-javac -d out (Get-ChildItem -Recurse -Filter .java src/main/java | ForEach-Object { $_.FullName })
-
+javac -d out (Get-ChildItem -Recurse -Filter *.java src/main/java | ForEach-Object { $_.FullName })
 ```
 
-The compiled `.class` files are found in the `out` folder.
+The compiled `.class` files will be placed inside the `out` directory.
 
-### Step 3 — Running The Application
+---
 
-To run the application, type the command below in the terminal:
+### Step 3 — Run the Application
+
+From the project root:
 
 ```bash
-
 java -cp out com.library.Main
-
 ```
 
-Then we will be greeted by the menu CLI:
+The application will display the main menu:
 
+```text
 ===================================================
      LIBRARY MANAGEMENT SYSTEM (CLI Edition)
 ===================================================
@@ -305,7 +365,7 @@ The required `data/` and `logs/` files are created automatically when required b
 
 ---
 
-## 8. Basic Usage
+## 11. Usage Walkthrough
 
 A typical workflow is:
 
@@ -317,7 +377,7 @@ Select:
 1 → 1
 ```
 
-Enter the member's:
+Enter:
 
 * Name
 * Email
@@ -328,8 +388,6 @@ The system generates a member ID such as:
 ```text
 MB0001
 ```
-
----
 
 ### 2. Add a Book
 
@@ -353,8 +411,6 @@ The system generates a book ID such as:
 BK0001
 ```
 
----
-
 ### 3. Issue a Book
 
 Select:
@@ -363,12 +419,9 @@ Select:
 3 → 1
 ```
 
-Enter the required:
+Enter the Book ID and Member ID.
 
-* Book ID
-* Member ID
-
-For example:
+Example:
 
 ```text
 Book ID: BK0001
@@ -380,8 +433,6 @@ A transaction ID such as the following is generated:
 ```text
 TX0001
 ```
-
----
 
 ### 4. Return a Book
 
@@ -399,8 +450,6 @@ TX0001
 
 The system processes the return and calculates a fine if the book is overdue.
 
----
-
 ### 5. View Reports
 
 Select:
@@ -410,8 +459,6 @@ Select:
 ```
 
 The reporting module displays library statistics and borrowing information, including the most-borrowed books.
-
----
 
 ### 6. Exit
 
@@ -423,11 +470,9 @@ Select:
 
 Data changes are saved to the CSV files.
 
-When the application is started again, previously stored data can be loaded from the files.
-
 ---
 
-## 9. Data Persistence
+## 12. Data Persistence
 
 The system uses CSV files instead of a database.
 
@@ -440,7 +485,7 @@ data/
 └── transactions.csv
 ```
 
-This approach keeps the project simple and demonstrates file handling using standard Java functionality.
+This approach keeps the project simple while demonstrating Java file handling and persistent storage.
 
 Application logs are stored in:
 
@@ -452,18 +497,18 @@ The log records important application activities with timestamps.
 
 ---
 
-## 10. Exception Handling
+## 13. Exception Handling
 
 The project uses custom checked exceptions to handle application errors.
 
 Examples include:
 
+* `LibraryException`
 * `NotFoundException`
 * `DuplicateEntryException`
 * `BusinessRuleException`
-* `LibraryException`
 
-These exceptions are used to provide meaningful error handling instead of relying only on generic runtime exceptions.
+These exceptions provide meaningful error handling instead of relying only on generic runtime exceptions.
 
 Examples of situations handled include:
 
@@ -472,30 +517,31 @@ Examples of situations handled include:
 * Duplicate entries
 * Invalid library operations
 * Business-rule violations
+* Invalid input
 
 ---
 
-## 11. Testing
+## 14. Testing
 
-The project contains a dependency-free test runner.
+The project contains a dependency-free assertion-based test runner.
 
 No JUnit, Maven, or Gradle is required.
 
-Compile both the main and test source files:
+### Compile Main and Test Sources
 
-### Linux / macOS
+#### Linux / macOS
 
 ```bash
 javac -d out $(find src/main/java src/test/java -name "*.java")
 ```
 
-### Windows PowerShell
+#### Windows PowerShell
 
 ```powershell
 javac -d out (Get-ChildItem -Recurse -Filter *.java src/main/java,src/test/java | ForEach-Object { $_.FullName })
 ```
 
-Run the test runner:
+### Run Tests
 
 ```bash
 java -cp out com.library.SimpleTestRunner
@@ -513,7 +559,7 @@ The test runner uses an isolated test-data directory so that testing does not mo
 
 ---
 
-## 12. Configuration
+## 15. Configuration
 
 The main configurable values are located in:
 
@@ -537,7 +583,26 @@ To change these rules, modify the constants and recompile the project.
 
 ---
 
-## 13. Troubleshooting
+## 16. Validation and Error Handling
+
+The application validates user input before performing operations.
+
+Examples include:
+
+* Empty input validation
+* Invalid numeric input
+* Invalid IDs
+* Duplicate records
+* Non-existing records
+* Invalid transaction operations
+* Book availability checks
+* Member validity checks
+
+Meaningful error messages are displayed when an operation cannot be completed.
+
+---
+
+## 17. Troubleshooting
 
 | Problem                                   | Solution                                                          |
 | ----------------------------------------- | ----------------------------------------------------------------- |
@@ -550,7 +615,7 @@ To change these rules, modify the constants and recompile the project.
 
 ---
 
-## 14. Design Documentation
+## 18. Design Documentation
 
 Additional project documentation is available in:
 
@@ -558,11 +623,12 @@ Additional project documentation is available in:
 
 Contains:
 
-* System architecture
-* Workflow diagram
-* Use case diagram
-* Class diagram
-* Sequence diagram
+* System architecture diagram
+* Workflow / process diagram
+* Use Case Diagram
+* Class Diagram
+* Sequence Diagram
+* System design information
 
 ### `statement.md`
 
@@ -571,11 +637,11 @@ Contains:
 * Problem statement
 * Project scope
 * Target users
-* Project requirements
+* High-level features
 
 ---
 
-## 15. Learning Objectives
+## 19. Learning Objectives
 
 This project demonstrates practical use of several Java programming concepts:
 
@@ -599,7 +665,7 @@ This project demonstrates practical use of several Java programming concepts:
 
 ---
 
-## 16. Future Enhancements
+## 20. Future Enhancements
 
 Possible future improvements include:
 
@@ -609,7 +675,7 @@ Possible future improvements include:
 * Book reservation system
 * Email notifications
 * Advanced analytics
-* Search and filtering improvements
+* Improved search and filtering
 * Exportable reports
 * Authentication and user accounts
 
@@ -617,7 +683,7 @@ These features are outside the current CLI implementation.
 
 ---
 
-## 17. Project Status
+## 21. Project Status
 
 **Status:** Completed CLI-based Core Java project
 
@@ -633,6 +699,6 @@ These features are outside the current CLI implementation.
 
 ---
 
-## 18. License
+## 22. License
 
 This project is developed for educational purposes as part of a Programming in Java course project.
